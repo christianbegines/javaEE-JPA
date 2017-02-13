@@ -6,17 +6,22 @@
 package com.fpmislata.domain;
 
 import java.io.Serializable;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name="categorias")
@@ -33,6 +38,10 @@ public class Categoria implements Serializable{
     @Column(name="id_categoria")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
+    @OneToMany(mappedBy="categoria",cascade=CascadeType.MERGE,fetch=FetchType.EAGER)
+    @XmlTransient
+    private Set<Producto>productos;
     
     @Column(nullable=false, length=50)
     private String nombre;
@@ -87,6 +96,8 @@ public class Categoria implements Serializable{
 
     @Override
     public String toString() {
-        return "Categoria{" + "id=" + id + ", nombre=" + nombre + '}';
-    } 
+        return "Categoria{" + "id=" + id + ", productos=" + productos + ", nombre=" + nombre + '}';
+    }
+
+   
 }
