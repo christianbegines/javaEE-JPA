@@ -5,26 +5,64 @@
  */
 package com.fpmislata.domain;
 
+import java.io.Serializable;
+import javax.persistence.*;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
 /**
  *
- * @author alumno
+ * @author christian
  */
-public class Cliente {
+@Entity
+@Table(name = "clientes")
+@NamedQueries({
+    @NamedQuery(name = "cliente.findAll", query = "SELECT c"
+            + " FROM Cliente c ORDER BY c.id")})
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Cliente implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @Column(name="id_cliente")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+    
+    @Column(name="nombre",length=50, nullable=false)
     private String nombre;
+    
+    @Column(name="apellidos",length=100,nullable=false)
     private String apellidos;
+    
+    @Column(name="nif",length=9,nullable=false)
     private String nif;
+    
+    @Column(name="direccion",length=100,nullable=true)
     private String direccion;
+    
+    @Column(name="poblacion",length=100,nullable=true)
     private String poblacion;
+    
+    @Column(name="codigo_postal",length=5,nullable=true)
     private String codigoPostal;
+    
+    @Column(name="provincia",length=100,nullable=true)
     private String provincia;
-    private String telefono;
+    
+    @Column(name="telefono",length=9,nullable=false)
+    private String telefono;    
+  
 
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellidos, String nif, String direccion, String poblacion, String codigoPostal, String provincia, String telefono) {
+    public Cliente(int id, String nombre, String apellidos, String nif, String direccion, String poblacion, String codigoPostal, String provincia, String telefono) {
+        this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nif = nif;
@@ -33,7 +71,10 @@ public class Cliente {
         this.codigoPostal = codigoPostal;
         this.provincia = provincia;
         this.telefono = telefono;
+        
     }
+    
+   
 
     public int getId() {
         return id;
@@ -134,7 +175,8 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "cliente{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + ", direccion=" + direccion + ", poblacion=" + poblacion + ", codigoPostal=" + codigoPostal + ", provincia=" + provincia + ", telefono=" + telefono + '}';
+        return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + ", direccion=" + direccion + ", poblacion=" + poblacion + ", codigoPostal=" + codigoPostal + ", provincia=" + provincia + ", telefono=" + telefono +  '}';
     }
 
+    
 }

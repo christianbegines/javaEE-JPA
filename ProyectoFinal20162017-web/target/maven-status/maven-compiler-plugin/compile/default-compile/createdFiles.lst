@@ -1,0 +1,6 @@
+com\fpmislata\servlets\CategoriaController.class
+webservice\ProductoServiceREST.class
+webservice\ExpedienteServiceREST.class
+webservice\CategoriaServiceREST.class
+webservice\ClienteServiceREST.class
+webservice\PedidosServiceREST.class

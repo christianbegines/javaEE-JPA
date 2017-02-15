@@ -35,8 +35,7 @@ public class Pedido implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)  
     private int id;
     
-    @OneToMany(mappedBy="pedido",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-    @XmlTransient
+    @OneToMany(mappedBy="pedido",cascade=CascadeType.ALL,fetch=FetchType.EAGER)  
     private Set<LineaPedido> lineas;
     
     @Column(nullable=false,length=50)

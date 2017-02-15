@@ -34,6 +34,7 @@ public class LineaPedido implements Serializable {
     
     @ManyToOne
     @JoinColumn(name="pedido")
+    @XmlTransient
     private Pedido pedido;
     
     @Column(nullable=false, length=50)
