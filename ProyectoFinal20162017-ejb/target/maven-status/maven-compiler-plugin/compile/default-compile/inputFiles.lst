@@ -1,3 +1,4 @@
+C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\domain\Proveedor.java
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\repository\CategoriaDaoLocal.java
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\repository\ClienteDAOLocal.java
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\domain\Pedido.java
@@ -15,12 +16,16 @@ C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\Proyecto
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\service\CategoriaService.java
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\service\CategoriaServiceLocal.java
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\repository\ExpedienteDAOLocal.java
+C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\service\ProveedoresServiceLocal.java
+C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\service\ProveedoresService.java
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\domain\Categoria.java
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\domain\Expediente.java
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\repository\ClienteDAO.java
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\service\ExpedienteServiceLocal.java
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\repository\CategoriaDao.java
+C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\repository\ProveedorDAOLocal.java
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\domain\Cliente.java
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\repository\ProductoDAOLocal.java
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\repository\PedidoDAO.java
+C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\repository\ProveedorDAO.java
 C:\Users\alumno\Desktop\DWS\ProyectoFinal20162017\ProyectoFinal20162017\ProyectoFinal20162017-ejb\src\main\java\com\fpmislata\service\ExpedienteService.java

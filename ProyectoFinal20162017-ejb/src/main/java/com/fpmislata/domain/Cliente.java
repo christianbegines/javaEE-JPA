@@ -6,6 +6,7 @@
 package com.fpmislata.domain;
 
 import java.io.Serializable;
+import java.util.Set;
 import javax.persistence.*;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,6 +33,9 @@ public class Cliente implements Serializable {
     @Column(name="id_cliente")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+    
+    @ManyToMany(mappedBy="clientes")  
+    private Set<Proveedor> proveedores;
     
     @Column(name="nombre",length=50, nullable=false)
     private String nombre;
@@ -61,8 +65,9 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(int id, String nombre, String apellidos, String nif, String direccion, String poblacion, String codigoPostal, String provincia, String telefono) {
+    public Cliente(int id, Set<Proveedor> proveedores, String nombre, String apellidos, String nif, String direccion, String poblacion, String codigoPostal, String provincia, String telefono) {
         this.id = id;
+        this.proveedores = proveedores;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nif = nif;
@@ -71,8 +76,9 @@ public class Cliente implements Serializable {
         this.codigoPostal = codigoPostal;
         this.provincia = provincia;
         this.telefono = telefono;
-        
     }
+
+   
     
    
 
