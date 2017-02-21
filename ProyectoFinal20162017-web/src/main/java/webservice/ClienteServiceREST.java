@@ -11,6 +11,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -76,6 +77,19 @@ public class ClienteServiceREST {
     }
     
     
-    
+    @DELETE
+    @Produces({"application/json"})
+    @Consumes({"application/json"})
+    @Path("/Clientes/delete/{id}")
+    public Response deleteCliente(@PathParam("id")int id) {
+        try{
+            Cliente c = new Cliente();
+            c.setId(id);
+            clienteService.deleteCliente(c);
+            return Response.ok().header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_TYPE.withCharset("UTF-8")).build();
+        }catch(Exception e){
+            return Response.status(404).header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_TYPE.withCharset("UTF-8")).build();
+        }
+    }
     
 }

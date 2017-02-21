@@ -57,13 +57,19 @@ public class ClienteService implements ClienteServiceLocal {
             clienteDAO.addCliente(cliente);
         }catch(Exception e){
             contexto.setRollbackOnly();
-            e.printStackTrace();
-            
-            
+            e.printStackTrace();  
         }
     }
     
-    
+    @Override
+    public void deleteCliente(Cliente cliente){
+        try{
+            clienteDAO.deleteCliente(cliente);
+        }catch(Exception e){
+            contexto.setRollbackOnly();
+            e.printStackTrace();
+        }
+    }
     
     
     

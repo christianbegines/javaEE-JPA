@@ -77,7 +77,7 @@ public class CategoriaServiceREST {
     @Produces({"application/json"})
     @Consumes({"application/json"})
     @Path("/Categorias/update/{id}")
-    public Response updateCategoria(@PathParam("id") int id, Categoria categoria) {
+    public Response updateCategoria(@PathParam("id") int id, Categoria categoria){
         try {
             Categoria c = new Categoria();
             c.setId(id);

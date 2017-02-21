@@ -22,7 +22,7 @@ public interface ClienteDAOLocal {
 
     void addCliente(Cliente cliente);
 
-   
+   void deleteCliente(Cliente cliente);
 
    
     

@@ -42,7 +42,7 @@ public class Proveedor implements Serializable {
     @Column(name="telefono",length=9,nullable=true)
     private String telefono;
     
-    @ManyToMany(mappedBy="proveedores")
+    @ManyToMany(mappedBy="proveedores",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     @XmlTransient
     private Set<Cliente> clientes;
 
