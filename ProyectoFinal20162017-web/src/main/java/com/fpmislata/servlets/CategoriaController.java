@@ -117,7 +117,16 @@ public class CategoriaController extends HttpServlet {
     }
 
     private void altaCategoria(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        String nombre = request.getParameter("nombre");
+        Categoria c = new Categoria(nombre);
+
+        try {
+            categoriaService.addCategoria(c);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        listarCategorias(request, response);
     }
 
     private void eliminarCategoria(HttpServletRequest request, HttpServletResponse response) {
@@ -125,7 +134,52 @@ public class CategoriaController extends HttpServlet {
     }
 
     private void modificarCategoria(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String accion = request.getParameter("accion");
+        if (accion != null && accion.equals("editar")) {
+
+            //1. Recuperamos el id de la persona seleccionada
+            String idPersona = request.getParameter("id");
+            if (idPersona != null) {
+                //2. Creamos el objeto persona a recuperar
+                Categoria c = new Categoria();
+                int id = Integer.parseInt(request.getParameter("id"));
+                c.setId(id);
+
+                try {
+                    c = categoriaService.findCategoriaById(c);
+                    request.setAttribute("categoria", c);
+                    request.getRequestDispatcher("/persona.jsp").forward(request, response);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                //3. Compartimos el objeto persona en alcance request
+                //4. Redireccionamos a la pagina para editar el objeto Persona
+            }
+        } else if (accion != null && accion.equals("modificar")) {
+
+            //1. Recuperamos los parametros         
+            String nombre = request.getParameter("nombre");
+            int id=Integer.valueOf(request.getParameter("id"));
+            Categoria c = new Categoria();
+            c.setNombre(nombre);
+            c.setId(id);
+
+            try {
+                this.categoriaService.updateCategoria(c);
+                List lista = categoriaService.listCategorias();
+                ArrayList<Categoria> listaArray = new ArrayList<>(lista);
+                request.getSession().setAttribute("listaCategorias", listaArray);
+                request.getRequestDispatcher("/listarCategorias.jsp").forward(request, response);
+            } catch (Exception e) {
+                //Informamos cualquier error
+                e.printStackTrace();
+            }
+//
+            // Volvemos a cargar la lista de personas
+            // Ejecutamos el metodo y obtenemos la lista
+
+        }
     }
 
 }

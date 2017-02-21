@@ -5,6 +5,7 @@
  */
 package com.fpmislata.service;
 
+import com.fpmislata.domain.Proveedor;
 import com.fpmislata.repository.ProveedorDAOLocal;
 import java.util.List;
 import javax.annotation.Resource;
@@ -39,5 +40,17 @@ public class ProveedoresService implements ProveedoresServiceLocal {
             return null;
         }
     }
+
+    @Override
+    public void addProveedor(Proveedor proveedor) {
+        try{
+            proveedorDAO.addProveedor(proveedor);
+        }catch(Exception e){
+            contexto.setRollbackOnly();
+            e.printStackTrace();   
+        }
+    }
+    
+    
     
 }

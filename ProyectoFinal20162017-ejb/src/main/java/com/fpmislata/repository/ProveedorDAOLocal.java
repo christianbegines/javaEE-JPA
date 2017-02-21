@@ -5,6 +5,7 @@
  */
 package com.fpmislata.repository;
 
+import com.fpmislata.domain.Proveedor;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -16,5 +17,7 @@ import javax.ejb.Local;
 public interface ProveedorDAOLocal {
 
     List listProveedores();
+
+    void addProveedor(Proveedor proveedor);
     
 }

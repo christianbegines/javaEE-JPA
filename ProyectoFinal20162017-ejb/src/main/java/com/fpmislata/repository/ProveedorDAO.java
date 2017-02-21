@@ -29,6 +29,11 @@ public class ProveedorDAO implements ProveedorDAOLocal {
         List<Proveedor> lista = em.createNamedQuery("proveedor.findAll").getResultList();
         return lista;
     }
+
+    @Override
+    public void addProveedor(Proveedor proveedor) {
+        em.persist(proveedor);
+    }
     
     
 }

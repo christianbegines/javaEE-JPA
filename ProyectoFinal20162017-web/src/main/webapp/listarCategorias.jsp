@@ -10,7 +10,7 @@
 	<h1>Listado de Categorias</h1>
         <h2>Versión con controlador</h2>
         
-	<a href="agregarCategoria.jsp">Agregar Categoria</a>
+	<a href="persona.jsp">Agregar Categoria</a>
 	<br/>
 	<br/>
 
@@ -29,13 +29,12 @@
                     
                     int id = categoria.getId();
                     String nombre = categoria.getNombre();
-
                 %>                
 		<tr>
                     <td><%=id%></td>
                     <td><%=nombre%></td>
-                    <td><a href="ModificarCategoria?accion=editar&id=<%=id%>">Modificar</td>
-                    <td><a href="EliminarCategoria?id=<%=id%>">Eliminar</a></td>
+                    <td><a href="UpdateCategoria?accion=editar&id=<%=id%>">Modificar</td>
+                    <td><a href="UpdateCategoria?accion=modificar&id=<%=id%>">Eliminar</a></td>
                 </tr>
                 <% } %>
 	</table>

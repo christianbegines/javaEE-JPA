@@ -19,5 +19,7 @@ public interface ClienteServiceLocal {
     List listClientes();
 
     Cliente findClienteById(Cliente cliente);
+
+    void addCliente(Cliente cliente);
     
 }

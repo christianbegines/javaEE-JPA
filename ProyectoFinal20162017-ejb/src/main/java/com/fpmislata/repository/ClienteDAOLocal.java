@@ -20,6 +20,8 @@ public interface ClienteDAOLocal {
 
     Cliente findClienteById(Cliente cliente);
 
+    void addCliente(Cliente cliente);
+
    
 
    

@@ -11,6 +11,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -92,7 +93,11 @@ public class CategoriaServiceREST {
             return Response.status(Status.INTERNAL_SERVER_ERROR).build();
         }
     }
-
+    
+    @DELETE
+    @Produces({"application/json"})
+    @Consumes({"application/json"})
+    @Path("/Categorias/delete/{id}")
     public Response deleteCategoria(@PathParam("id")int id) {
         try{
             Categoria c = new Categoria();
