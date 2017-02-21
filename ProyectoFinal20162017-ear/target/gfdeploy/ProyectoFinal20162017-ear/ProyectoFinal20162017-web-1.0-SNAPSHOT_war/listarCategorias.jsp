@@ -34,7 +34,7 @@
                     <td><%=id%></td>
                     <td><%=nombre%></td>
                     <td><a href="UpdateCategoria?accion=editar&id=<%=id%>">Modificar</td>
-                    <td><a href="UpdateCategoria?accion=modificar&id=<%=id%>">Eliminar</a></td>
+                    <td><a href="DeleteCategoria?id=<%=id%>">Eliminar</a></td>
                 </tr>
                 <% } %>
 	</table>

@@ -9,11 +9,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
     <%
-    
-        Categoria c =(Categoria)request.getAttribute("categoria"); 
-    
-        if(c!=null){
-        
+        Categoria c =(Categoria)request.getAttribute("categoria");    
+        if(c!=null){       
     %>   
     <head>
         <title>Modificar categoria</title>
