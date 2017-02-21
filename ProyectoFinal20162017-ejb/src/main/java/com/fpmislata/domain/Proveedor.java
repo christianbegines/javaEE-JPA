@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,8 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name="proveedores")
 @NamedQueries({
-@NamedQuery(name="proveedor.findAll", query ="SELECT p"
-        + " FROM Proveedor p ORDER BY p.id")})
+@NamedQuery(name="proveedor.findAll", query ="SELECT p FROM Proveedor p ORDER BY p.id")})
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Proveedor implements Serializable {
@@ -42,10 +42,8 @@ public class Proveedor implements Serializable {
     @Column(name="telefono",length=9,nullable=true)
     private String telefono;
     
-    @ManyToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-    @JoinTable(name="proveedor-cliente",
-            joinColumns=@JoinColumn(name="proveedor"),
-            inverseJoinColumns=@JoinColumn(name="cliente"))    
+    @ManyToMany(mappedBy="proveedores")
+    @XmlTransient
     private Set<Cliente> clientes;
 
     public Proveedor() {

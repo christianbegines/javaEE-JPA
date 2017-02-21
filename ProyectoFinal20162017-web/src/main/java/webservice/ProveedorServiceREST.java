@@ -29,8 +29,6 @@ public class ProveedorServiceREST {
     @EJB
     private ProveedoresServiceLocal proveedoresService;
     
-    
-    
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     @GET

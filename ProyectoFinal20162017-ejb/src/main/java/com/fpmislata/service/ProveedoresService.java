@@ -21,6 +21,8 @@ public class ProveedoresService implements ProveedoresServiceLocal {
 
     @EJB
     private ProveedorDAOLocal proveedorDAO;
+    
+    
     @Resource
     private SessionContext contexto;
     

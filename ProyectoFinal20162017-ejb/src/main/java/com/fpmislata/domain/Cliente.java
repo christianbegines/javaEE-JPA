@@ -6,6 +6,7 @@
 package com.fpmislata.domain;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -21,8 +22,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "clientes")
 @NamedQueries({
-    @NamedQuery(name = "cliente.findAll", query = "SELECT c"
-            + " FROM Cliente c ORDER BY c.id")})
+    @NamedQuery(name = "cliente.findAll", query = "SELECT c FROM Cliente c ORDER BY c.id")})
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Cliente implements Serializable {
@@ -34,7 +34,10 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     
-    @ManyToMany(mappedBy="clientes")  
+    @ManyToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    @JoinTable(name="proveedor_cliente",
+            joinColumns=@JoinColumn(name="id_cliente"),
+             inverseJoinColumns=@JoinColumn(name="id_proveedor"))  
     private Set<Proveedor> proveedores;
     
     @Column(name="nombre",length=50, nullable=false)
@@ -60,9 +63,14 @@ public class Cliente implements Serializable {
     
     @Column(name="telefono",length=9,nullable=false)
     private String telefono;    
-  
 
     public Cliente() {
+            this.proveedores= new HashSet<>();
+    }
+  
+
+    public Cliente(Set<Proveedor> proveedores) {
+         this.proveedores = proveedores;
     }
 
     public Cliente(int id, Set<Proveedor> proveedores, String nombre, String apellidos, String nif, String direccion, String poblacion, String codigoPostal, String provincia, String telefono) {
@@ -78,9 +86,13 @@ public class Cliente implements Serializable {
         this.telefono = telefono;
     }
 
-   
-    
-   
+    public Set<Proveedor> getProveedores() {
+        return proveedores;
+    }
+
+    public void setProveedores(Set<Proveedor> proveedores) {
+        this.proveedores = proveedores;
+    }
 
     public int getId() {
         return id;
@@ -181,8 +193,10 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + ", direccion=" + direccion + ", poblacion=" + poblacion + ", codigoPostal=" + codigoPostal + ", provincia=" + provincia + ", telefono=" + telefono +  '}';
+        return "Cliente{" + "id=" + id + ", proveedores=" + proveedores + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + ", direccion=" + direccion + ", poblacion=" + poblacion + ", codigoPostal=" + codigoPostal + ", provincia=" + provincia + ", telefono=" + telefono + '}';
     }
+
+   
 
     
 }
