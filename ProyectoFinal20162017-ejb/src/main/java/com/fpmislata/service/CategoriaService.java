@@ -59,7 +59,29 @@ public class CategoriaService implements CategoriaServiceLocal {
             contexto.setRollbackOnly();
             e.printStackTrace();
             
+            
         }
+    }
+
+    @Override
+    public void updateCategoria(Categoria categoria) {
+        try{
+            categoriaDao.updateCategoria(categoria);
+        }catch(Exception e){
+            contexto.setRollbackOnly();
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void deleteCategoria(Categoria categoria) {
+        try{
+            categoriaDao.deleteCategoria(categoria);
+        }catch(Exception e){
+            contexto.setRollbackOnly();
+            e.printStackTrace();
+        }
+        
     }
     
     

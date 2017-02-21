@@ -22,7 +22,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-
 /**
  *
  * @author lodiade
@@ -35,45 +34,77 @@ public class CategoriaServiceREST {
 
     @EJB
     private CategoriaServiceLocal categoriaService;
-    
+
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
-
     @GET
-    @Produces({"application/json;charset=UTF-8"})    
+    @Produces({"application/json;charset=UTF-8"})
     @Path("/Categorias")
     public List<Categoria> listCategorias() {
         return categoriaService.listCategorias();
     }
-    
+
     @GET
     @Produces("application/json;charset=UTF-8")
     @Consumes("application/json;charset=UTF-8")
-    @Path("/Categorias/findCategoriaById/{id}")  
-    public Categoria findCategoriaById(@PathParam("id") int id){
-        Categoria c= new Categoria();
+    @Path("/Categorias/findCategoriaById/{id}")
+    public Categoria findCategoriaById(@PathParam("id") int id) {
+        Categoria c = new Categoria();
         c.setId(id);
         return categoriaService.findCategoriaById(c);
     }
-    
-    
+
     @POST
     @Produces("application/json;charset=UTF-8")
     @Consumes("application/json;charset=UTF-8")
     @Path("/Categorias/add")
     public Response addCategoria(Categoria categoria) {
-        try{
+        try {
             categoriaService.addCategoria(categoria);
             return Response.ok().entity(categoria)
-                    .header(HttpHeaders.CONTENT_TYPE,MediaType.APPLICATION_JSON_TYPE.withCharset("UTF-8"))
+                    .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_TYPE.withCharset("UTF-8"))
                     .build();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             return Response.status(Status.INTERNAL_SERVER_ERROR)
-                    .header(HttpHeaders.CONTENT_TYPE,MediaType.APPLICATION_JSON_TYPE.withCharset("UTF-8"))
+                    .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_TYPE.withCharset("UTF-8"))
                     .build();
+        }
+    }
+
+    @PUT
+    @Produces({"application/json"})
+    @Consumes({"application/json"})
+    @Path("/Categorias/update/{id}")
+    public Response updateCategoria(@PathParam("id") int id, Categoria categoria) {
+        try {
+            Categoria c = new Categoria();
+            c.setId(id);
+            c = categoriaService.findCategoriaById(c);
+            if (c != null) {
+                c.setNombre(categoria.getNombre());
+                categoriaService.updateCategoria(c);
+                return Response.ok().entity(c).build();
+            } else {
+                return Response.status(Status.NOT_FOUND).build();
+            }
+        } catch (Exception e) {
+            return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    public Response deleteCategoria(@PathParam("id")int id) {
+        try{
+            Categoria c = new Categoria();
+            c.setId(id);
+            categoriaService.deleteCategoria(c);
+            return Response.ok().header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_TYPE.withCharset("UTF-8")).build();
+        }catch(Exception e){
+            return Response.status(404).header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_TYPE.withCharset("UTF-8")).build();
         }
     }
     
     
 }
+
+

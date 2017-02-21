@@ -21,5 +21,11 @@ public interface CategoriaServiceLocal {
     Categoria findCategoriaById(Categoria categoria);
 
     void addCategoria(Categoria categoria);
+
+    void updateCategoria(Categoria categoria);
+
+    void deleteCategoria(Categoria categoria);
+
+    
     
 }

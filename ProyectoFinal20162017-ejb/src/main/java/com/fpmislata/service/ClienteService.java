@@ -5,6 +5,7 @@
  */
 package com.fpmislata.service;
 
+import com.fpmislata.domain.Cliente;
 import com.fpmislata.repository.ClienteDAOLocal;
 import java.util.List;
 import javax.annotation.Resource;
@@ -38,6 +39,19 @@ public class ClienteService implements ClienteServiceLocal {
             return null;
         }
     }
+
+    @Override
+    public Cliente findClienteById(Cliente cliente) {
+        try{
+            return clienteDAO.findClienteById(cliente);
+        }catch(Exception e){
+            contexto.setRollbackOnly();
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    
     
     
     

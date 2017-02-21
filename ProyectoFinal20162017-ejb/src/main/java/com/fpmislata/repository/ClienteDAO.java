@@ -29,6 +29,13 @@ public class ClienteDAO implements ClienteDAOLocal {
         List<Cliente> lista = em.createNamedQuery("cliente.findAll").getResultList();
         return lista;
     }
+
+    @Override
+    public Cliente findClienteById(Cliente cliente) {
+        return em.find(Cliente.class, cliente.getId());
+    }
+
+    
     
     
     

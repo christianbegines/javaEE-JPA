@@ -42,6 +42,11 @@
             <version>1.18.1</version>            
         </dependency>  
         <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+        <dependency>
             <groupId>com.fpmislata</groupId>
             <artifactId>ProyectoFinal20162017-ejb</artifactId>
             <version>1.0-SNAPSHOT</version>
